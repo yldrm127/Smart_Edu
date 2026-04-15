@@ -1,0 +1,23 @@
+{
+  "name": "smartedu",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/yldrm127/SMART_EDU#readme",
+  "bugs": {
+    "url": "https://github.com/yldrm127/SMART_EDU/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yldrm127/SMART_EDU.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
