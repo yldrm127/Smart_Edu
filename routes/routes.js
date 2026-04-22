@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const courseController = require('../controllers/courseControllers');
+
 const home = router.get("/", (req, res) => {
   res.status(200).render("index");
 });
@@ -8,6 +10,9 @@ const about = router.get("/about", (req, res) => {
 });
 const blog = router.get("/blog", (req, res) => {
   res.status(200).render("blog");
+});
+const addBlog = router.get("/addblog", (req, res) => {
+  res.status(200).render("addBlog");
 });
 const pricing = router.get("/pricing", (req, res) => {
   res.status(200).render("pricing");
@@ -21,23 +26,9 @@ const contact = router.get("/contact", (req, res) => {
 const blogSingle = router.get("/blog-single", (req, res) => {
   res.status(200).render("blog-single");
 });
-const courseGrid2 = router.get("/course-grid-2", (req, res) => {
-  res.status(200).render("course-grid-2");
+const courseGrid2 = router.get("/course-grid-2", courseController.getAllCourses);
+const courseAdd = router.get("/courses", (req, res) => {
+  res.status(200).render("courses");
 });
-const courseGrid3 = router.get("/course-grid-3", (req, res) => {
-  res.status(200).render("course-grid-3");
-});
-const courseGrid4 = router.get("/course-grid-4", (req, res) => {
-  res.status(200).render("course-grid-4");
-});
-
-module.exports = {
-  about,
-  courseGrid2,
-  courseGrid3,
-  courseGrid4,
-  blog,
-  blogSingle,
-
-  home,
-};
+const courseCreate = router.post("/courses", courseController.createCourse);
+module.exports = router
