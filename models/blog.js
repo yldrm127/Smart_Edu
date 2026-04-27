@@ -18,9 +18,13 @@ const blogSchema=new mongoose.Schema({
         default:Date.now
     },
     blogWriter:{
-        type:String,
+        type:mongoose.mongoose.Types.ObjectId,
+        ref:'User',
         required:true
     }
 });
 
+blogSchema.virtual('formattedDate').get(function(){
+    return this.createDate.toLocaleDateString("tr-TR");
+});
 module.exports=mongoose.model('Blog',blogSchema);
