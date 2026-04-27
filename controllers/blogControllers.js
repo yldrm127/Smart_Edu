@@ -12,7 +12,8 @@ exports.getAllBlogs = async (req, res) => {
 };
 exports.getBlogById = async (req, res) => {
   try {
-    const blog = await blogModel.findById(req.params.id); 
+    const blog = await blogModel.findById(req.params.id).populate("blogWriter"); 
+    console.log(blog);
     if (!blog) {
       return res.status(404).send("Blog not found");
     }
